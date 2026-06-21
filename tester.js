@@ -5,10 +5,10 @@
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const STATUS_URL = "https://raw.githubusercontent.com/adhamprojectteam/server/main/tester.json";
-const REFRESH_INTERVAL = 60000; // 60 detik
+const REFRESH_INTERVAL = 1000; // 60 detik
 
 let countdownTimer = null;
-let countdownValue = 60;
+let countdownValue = 1;
 
 async function fetchStatus() {
   try {
@@ -143,11 +143,11 @@ function renderFetchError() {
 
 function resetCountdown() {
   if (countdownTimer) clearInterval(countdownTimer);
-  countdownValue = 60;
+  countdownValue = 1;
   updateCountdownUI();
   countdownTimer = setInterval(() => {
     countdownValue--;
-    if (countdownValue < 0) countdownValue = 60;
+    if (countdownValue < 0) countdownValue = 1;
     updateCountdownUI();
   }, 1000);
 }
